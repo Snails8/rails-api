@@ -5,5 +5,10 @@ class SampleController < ApplicationController
     @msg = 'ようこそRailsの世界へ!'
     render 'sample/index'
   end
+
+  # 作成
+  def create
+    render 'sample/create'
+  end
   
 end
