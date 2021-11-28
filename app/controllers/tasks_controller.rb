@@ -20,7 +20,7 @@ class TasksController < ApplicationController
 
   # 編集画面表示(/tasks/1/edit)
   def edit
-    @task = Task.find(params:[:id])
+    @task = Task.find(params[:id])
   end
 
   # 更新処理
