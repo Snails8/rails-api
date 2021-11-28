@@ -5,7 +5,7 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
-  # タスク追加画面（/tasks/new）にアクセスするときに呼ばれる
+  # タスク追加画面表示（/tasks/new）にアクセスするときに呼ばれる
   def new
     @task = Task.new
   end
@@ -15,6 +15,18 @@ class TasksController < ApplicationController
     @task = Task.create(task_params)
     #  名前付きルート
     #  tasks_pathはトップ画面（/）へのリンクを表す
+    redirect_to tasks_path
+  end
+
+  # 編集画面表示(/tasks/1/edit)
+  def edit
+    @task = Task.find(params:[:id])
+  end
+
+  # 更新処理
+  def update
+    @task = Task.find(params[:id])
+    @task.update(task_params)
     redirect_to tasks_path
   end
   
