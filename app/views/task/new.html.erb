@@ -1,0 +1,15 @@
+<h1>新規タスク</h1>
+<%= form_for(@task) do |f| %>
+  <div><%= f.label :title %></div>
+  <div><%= f.text_field :title %></div>
+  <div><%= f.submit %></div>
+<% end %>
+<%= link_to '戻る', task_path %>
+
+<%# コンパイル例 %>
+<%# <form class="new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post">
+  <input name="utf8" type="hidden" value="✓" />
+  <input type="hidden" name="authenticity_token" value="※ここにはトークンが入ります" />
+  <input type="text" name="user[text]" id="user_text" />
+  <input type="submit" name="commit" value="Create User" />
+</form> %>
