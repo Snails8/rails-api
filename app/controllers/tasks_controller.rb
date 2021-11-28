@@ -29,6 +29,13 @@ class TasksController < ApplicationController
     @task.update(task_params)
     redirect_to tasks_path
   end
+
+  # 削除
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    redirect_to tasks_path
+  end
   
   # Strong Parameters
   # ユーザから悪意のあるパラメータが渡ってきても安全に処理してくれるもの
