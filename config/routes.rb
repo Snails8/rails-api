@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :sample, only: [:index, :create]
 
   # sample実装
-  resources :task
+  resources :tasks
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   #

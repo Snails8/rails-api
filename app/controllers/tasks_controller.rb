@@ -1,5 +1,5 @@
-class TaskController < ApplicationController
-  
+# タスク CRUD処理
+class TasksController < ApplicationController
   # 一覧
   def index
     @tasks = Task.all
@@ -15,7 +15,7 @@ class TaskController < ApplicationController
     @task = Task.create(task_params)
     #  名前付きルート
     #  tasks_pathはトップ画面（/）へのリンクを表す
-    redirect_to task_path
+    redirect_to tasks_path
   end
   
   # Strong Parameters
@@ -25,5 +25,4 @@ class TaskController < ApplicationController
     def task_params
       params.require(:task).permit(:title)
     end
-    
 end

@@ -4,7 +4,9 @@
   <div><%= f.text_field :title %></div>
   <div><%= f.submit %></div>
 <% end %>
-<%= link_to '戻る', task_path %>
+<%= link_to '戻る', tasks_path %>
+
+<%# コントローラー名を単数にしたらコンパイル先で参照にずれが起き苦労した %>
 
 <%# コンパイル例 %>
 <%# <form class="new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post">
