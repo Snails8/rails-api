@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   # sample実装
   resources :tasks
 
+  # route ファイル分離
+  draw(:admin)
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   #
 
