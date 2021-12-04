@@ -5,8 +5,17 @@ Rails.application.routes.draw do
   # sample実装
   resources :tasks
 
+  # contorller名#メソッド名
+  get 'boards', to: 'boards#index'
+  # rails5だと以下で動く
+  # root "boards#index"
+
+  # namespace 'admin' do
+  #   root to: "home#index"
+  # end
+  
   # route ファイル分離
-  draw(:admin)
+  # draw :admin
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   #
