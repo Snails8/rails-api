@@ -7,9 +7,8 @@ Rails.application.routes.draw do
 
   # contorller名#メソッド名
   get 'boards', to: 'boards#index'
-  # rails5だと以下で動く
-  # root "boards#index"
-
+  get 'boards/new', to: 'boards#new'
+  
   # namespace 'admin' do
   #   root to: "home#index"
   # end
