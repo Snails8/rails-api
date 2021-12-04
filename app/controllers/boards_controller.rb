@@ -6,6 +6,8 @@ class BoardsController < ApplicationController
   end
 
   def new
+    # インスタンス変数を格納
+    @board = Board.new
   end
   
   
