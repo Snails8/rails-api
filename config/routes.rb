@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   # contorller名#メソッド名
   get 'boards', to: 'boards#index'
   get 'boards/new', to: 'boards#new'
-  post 'boards', to: 'boards#create' 
+  post 'boards', to: 'boards#create'
+  get 'boards/:id', to: 'boards#show' 
   
   # namespace 'admin' do
   #   root to: "home#index"

@@ -14,6 +14,11 @@ class BoardsController < ApplicationController
     # パラメーターを渡すことで保存できる
     Board.create(board_params)
   end
+
+  def show
+    @board = Board.find(params[:id])    
+  end
+  
   
   # strong_parameter
   # フォームで送信されるparamsに他のデータを臆させないため(セキュリティ的に問題になる)
