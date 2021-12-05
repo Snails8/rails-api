@@ -4,18 +4,7 @@
     <%= link_to '一覧', boards_path, class: 'btn btn-outline-dark' %>
   </div>
 </div>
-<%= form_for @board do |f|%>
-  <div class="form-group">
-    <%= f.label :name, '名前'%>
-    <%= f.text_field :name, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :title, 'タイトル'%>
-    <%= f.text_field :title, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :title, 'タイトル'%>
-    <%= f.text_area :title, class: "form-control", rows: 10 %>
-  </div>
-  <%= f.submit '保存', class: 'btn btn-primary'%>
-<% end %>
+
+<%# パーシャルで呼び出す。_formを呼び出すときは単にformとかく(アンダースコア不要) %>
+<%# これで直接インスタンス変数にアクセスしないで利用できる %>
+<%= render partial: 'form', locals: {board: @board} %>
