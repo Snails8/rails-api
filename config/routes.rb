@@ -6,10 +6,11 @@ Rails.application.routes.draw do
   resources :tasks
 
   # contorller名#メソッド名
-  get 'boards', to: 'boards#index'
-  get 'boards/new', to: 'boards#new'
-  post 'boards', to: 'boards#create'
-  get 'boards/:id', to: 'boards#show' 
+  resources :boards, only: [:index, :new, :create, :show]
+  # get 'boards', to: 'boards#index'
+  # get 'boards/new', to: 'boards#new'
+  # post 'boards', to: 'boards#create'
+  # get 'boards/:id', to: 'boards#show' 
   
   # namespace 'admin' do
   #   root to: "home#index"
