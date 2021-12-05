@@ -18,6 +18,13 @@ class BoardsController < ApplicationController
   def show
     @board = Board.find(params[:id])    
   end
+
+  def edit
+    @board = Board.find(params[:id])
+  end
+
+  
+  
   
   
   # strong_parameter
