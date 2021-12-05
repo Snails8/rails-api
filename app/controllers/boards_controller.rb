@@ -1,5 +1,8 @@
 class BoardsController < ApplicationController
 
+  # 各メソッドが呼ばれる前に実行させる(onlyで)
+  before_action :set_target_board, only: %i[show edit update destroy]
+
   # 一覧
   def index
     @boards = Board.all
@@ -18,29 +21,23 @@ class BoardsController < ApplicationController
   end
 
   def show
-    @board = Board.find(params[:id])    
   end
 
   def edit
-    @board = Board.find(params[:id])
   end
 
   def update
-    board = Board.find(params[:id])
-    board.update(board_params)
+    @board.update(board_params)
 
     # 特殊な書き方ではあるが、オブジェクトを入れると遷移する
-    redirect_to board
+    redirect_to @board
   end
 
   def destroy
-    board = Board.find(params[:id])
-    board.delete
+    @board.delete
     # 一覧へ
     redirect_to boards_path
   end
-  
-  
   
   private
   # strong_parameter
@@ -48,5 +45,10 @@ class BoardsController < ApplicationController
   def board_params
     # requireでモデルのキー、permitでプロパティのキー
     params.require(:board).permit(:name, :title, :body)
+  end  
+
+  def set_target_board
+    # 他のメソッドからアクセスできるように@boardに格納
+    @board = Board.find(params[:id])
   end  
 end
