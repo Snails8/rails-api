@@ -23,10 +23,16 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
   end
 
+  def update
+    board = Board.find(params[:id])
+    board.update(board_params)
+
+    # 特殊な書き方ではあるが、オブジェクトを入れると遷移する
+    redirect_to board
+  end
   
   
-  
-  
+  private
   # strong_parameter
   # フォームで送信されるparamsに他のデータを臆させないため(セキュリティ的に問題になる)
   def board_params
