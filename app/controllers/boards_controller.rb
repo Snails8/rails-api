@@ -12,7 +12,9 @@ class BoardsController < ApplicationController
   
   def create
     # パラメーターを渡すことで保存できる
-    Board.create(board_params)
+    board = Board.create(board_params)
+    # boardにはidがあるのでそれをもとにしたurlに移動
+    redirect_to board
   end
 
   def show
@@ -30,6 +32,14 @@ class BoardsController < ApplicationController
     # 特殊な書き方ではあるが、オブジェクトを入れると遷移する
     redirect_to board
   end
+
+  def destroy
+    board = Board.find(params[:id])
+    board.delete
+    # 一覧へ
+    redirect_to boards_path
+  end
+  
   
   
   private

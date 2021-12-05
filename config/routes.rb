@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :tasks
 
   # contorller名#メソッド名
-  resources :boards, only: [:index, :new, :create, :show, :edit, :update]
+  resources :boards
   # get 'boards', to: 'boards#index'
   # get 'boards/new', to: 'boards#new'
   # post 'boards', to: 'boards#create'
