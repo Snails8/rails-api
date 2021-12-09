@@ -11,6 +11,9 @@ module App
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
+    # defaultのlocaleをjaに
+    config.i18n.default_locale = :ja
+
     # タイムゾーンを日本時間に変更
     config.time_zone = "Tokyo"
 
