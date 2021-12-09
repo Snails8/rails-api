@@ -16,6 +16,9 @@ class BoardsController < ApplicationController
   def create
     # パラメーターを渡すことで保存できる
     board = Board.create(board_params)
+
+    # user のsessionに一次的にfalshデータの格納(リロードなくなる )
+    flash[:notice] = "「#{board.title}」の掲示板を作成しました"
     # boardにはidがあるのでそれをもとにしたurlに移動
     redirect_to board
   end
@@ -36,7 +39,7 @@ class BoardsController < ApplicationController
   def destroy
     @board.delete
     # 一覧へ
-    redirect_to boards_path
+    redirect_to boards_path, flash: { notice: "「#{@board.title}」の掲示板は削除されました"}
   end
   
   private
