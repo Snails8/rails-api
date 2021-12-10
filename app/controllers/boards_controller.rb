@@ -9,18 +9,28 @@ class BoardsController < ApplicationController
   end
 
   def new
-    # インスタンス変数を格納
-    @board = Board.new
+    # インスタンス変数を格納(保存失敗時flashを格納)
+    @board = Board.new(flash[:board])
   end
   
   def create
-    # パラメーターを渡すことで保存できる
-    board = Board.create(board_params)
+    # 初期化()
+    board = Board.new(board_params)
 
-    # user のsessionに一次的にfalshデータの格納(リロードなくなる )
-    flash[:notice] = "「#{board.title}」の掲示板を作成しました"
-    # boardにはidがあるのでそれをもとにしたurlに移動
-    redirect_to board
+    # 保存した場合 true が返される(このときvalidationが起こる)
+    if board.save
+      # user のsessionに一次的にfalshデータの格納(リロードなくなる )
+      flash[:notice] = "「#{board.title}」の掲示板を作成しました"
+      redirect_to board
+    else 
+      redirect_to new_board_path, flash: {
+        board: board,
+        error_messages: board.errors.full_messages
+      }
+    end
+
+    # パラメーターを渡すことで保存できる
+    # board = Board.create(board_params)
   end
 
   def show
