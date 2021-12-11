@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'comments/create'
+  get 'comments/destroy'
   resources :sample, only: [:index, :create]
 
   # sample実装
@@ -11,6 +13,9 @@ Rails.application.routes.draw do
   # get 'boards/new', to: 'boards#new'
   # post 'boards', to: 'boards#create'
   # get 'boards/:id', to: 'boards#show' 
+
+
+  resources :comments, only: %i[create destroy]
   
   # namespace 'admin' do
   #   root to: "home#index"
