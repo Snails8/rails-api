@@ -20,4 +20,7 @@
 class Comment < ApplicationRecord
   # referenceを設定すると自動でこうなる
   belongs_to :board
+
+  validates :name, presence: true, length: { maximum: 10}
+  validates :comment, presence: true, length: { minimum:1, maximum:1000 }
 end
