@@ -10,6 +10,9 @@
 #  updated_at :datetime         not null
 #
 class Board < ApplicationRecord
+  # boardから複数のcommentオブジェクトを取得できる
+  has_many :comments 
+
   # presenceがlaravelでいう requiredに該当
   validates :name, presence: true, length: {minimum:1, maximum:10}
   validates :title, presence: true, length: {minimum:1, maximum:30}

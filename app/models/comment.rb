@@ -18,5 +18,6 @@
 #  fk_rails_...  (board_id => boards.id)
 #
 class Comment < ApplicationRecord
+  # referenceを設定すると自動でこうなる
   belongs_to :board
 end
