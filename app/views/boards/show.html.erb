@@ -19,4 +19,8 @@
   </div>
 </div>
 
+<div class="p-comment__list">
+  <div class="p-comment_listTitle">コメント</div>
+  <%# オブジェクトの数だけviewが表示される 該当箇所はapp/views/comments/_commen.htmml.erb %>
+  <%= render @board.comments %>
 <%= render partial: 'comment_form', locals: { comment: @comment } %>

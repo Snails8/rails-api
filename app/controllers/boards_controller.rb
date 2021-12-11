@@ -34,7 +34,12 @@ class BoardsController < ApplicationController
   end
 
   def show
-    @comment = @board.comments.new
+    # このままだと保存されていない全てのコメントが表示されてしまう。(常に空のコメントが含まれる)
+    # @comment = @board.comments.new
+
+    # 初期化する際に紐付いたのもを取得
+    @comment = Comment.new(board_id: @board_id)
+
   end
 
   def edit
