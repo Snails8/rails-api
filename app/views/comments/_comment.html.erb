@@ -3,5 +3,7 @@
   <div class="p-comment__bottomLine">
     <span><%= comment.name %></span>
     <span><%= comment.created_at.to_s(:datetime_jp) %></span>
+    <%# confrim で確認メッセージ %>
+    <span><%= link_to '削除', comment, method: :delete, date: { confirm: '削除してもいよろしいですか？' } %></span>
   </div>
 </div>
