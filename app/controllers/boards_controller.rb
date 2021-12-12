@@ -65,7 +65,7 @@ class BoardsController < ApplicationController
   # フォームで送信されるparamsに他のデータを臆させないため(セキュリティ的に問題になる)
   def board_params
     # requireでモデルのキー、permitでプロパティのキー
-    params.require(:board).permit(:name, :title, :body)
+    params.require(:board).permit(:name, :title, :body, tag_ids: [])
   end  
 
   def set_target_board
