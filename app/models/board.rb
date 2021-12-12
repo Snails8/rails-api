@@ -11,7 +11,8 @@
 #
 class Board < ApplicationRecord
   # boardから複数のcommentオブジェクトを取得できる
-  has_many :comments 
+  # dependentでboardが削除されたときにcommentも削除する
+  has_many :comments, dependent: :delete_all
 
   # tagとのリレーション(NN)
   has_many :board_tag_relations
