@@ -1,5 +1,17 @@
 <div class="d-flex align-items-center">
   <h1>掲示板一覧</h1>
+
+  <div class="ml-auto baords__linkBox">
+    <%= form_tag boards_path, method: :get, class: 'baords__searchForm' do %>
+      <%= select_tag :tag_ids 
+        options_form_collection_for_select(Tag.all, :id, :name, params[:tag_ids]),
+        {
+          prompt: 'タグで絞り込み',
+          class: 'form-control boards__select',
+          onchange: 'submit(this.form);'
+        }
+      %>
+    <% end %>
 </div>
 
 <% if flash[:notice] %>

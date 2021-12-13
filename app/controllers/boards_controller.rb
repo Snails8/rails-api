@@ -5,7 +5,9 @@ class BoardsController < ApplicationController
 
   # 一覧
   def index
-    @boards = Board.page(params[:page])
+    @boards = params[:tag_id].present? ? tag.find(params[:tag_id]).boards : Board.all
+    @boards = @boards.page(params[:page])
+    # @boards = Board.page(params[:page])
   end
 
   def new
